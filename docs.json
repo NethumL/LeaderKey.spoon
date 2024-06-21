@@ -7,16 +7,84 @@
 
     ],
     "Function" : [
-
+      {
+        "doc" : "Returns a table with modifier, key, and name for a single key\nParameters:\n * key - Key to bind\n * name - Name of keybinding\nReturns:\n * Table with modifier, key, and name\nNotes:\nIf the key is a capital letter, it also includes the shift modifier.\nOtherwise, no modifiers.",
+        "stripped_doc" : [
+          "Returns a table with modifier, key, and name for a single key"
+        ],
+        "def" : "LeaderKey.singleKey(key, name)",
+        "parameters" : [
+          " * key - Key to bind",
+          " * name - Name of keybinding"
+        ],
+        "notes" : [
+          "If the key is a capital letter, it also includes the shift modifier.",
+          "Otherwise, no modifiers."
+        ],
+        "signature" : "LeaderKey.singleKey(key, name)",
+        "type" : "Function",
+        "returns" : [
+          " * Table with modifier, key, and name"
+        ],
+        "name" : "singleKey",
+        "desc" : "Returns a table with modifier, key, and name for a single key"
+      },
+      {
+        "doc" : "Prepares the top level keybindings in the keymap\nParameters:\n * userKeyMap - A keymap to load to the leader key binding\nReturns:\n * Function that runs when the leader key is triggered\nNotes:\nSpec of keymap:\nEvery key is of format {{modifers}, key, description}.\nThe first two elements are similar to what is expected in `hs.hotkey.bind`\n\nThe value for each must be in one of the following two forms:\n1. A function: pressing the key invokes the function.\n2. A table: pressing the key activates the next layer of keybindings.\n   This table should have the same format as the top table\n\nFor example:\n\n```lua\nlocal keyMap = {\n    [{ {}, \"space\", \"command\" }] = functionToRunForSpace,\n    [{ { \"option\" }, \"space\", \"⌥-SPC\" }] = functionToRunForOptionSpace,\n    [singleKey(\"h\", \"hammerspoon+\")] = {\n        [singleKey(\"r\", \"reload\")] = function()\n            hs.reload()\n            hs.console.clearConsole()\n        end,\n       [singleKey(\";\", \"console\")] = function()\n           hs.toggleConsole()\n       end,\n    },\n}\n```",
+        "stripped_doc" : [
+          "Prepares the top level keybindings in the keymap"
+        ],
+        "def" : "LeaderKey.getBinder(userKeyMap)",
+        "parameters" : [
+          " * userKeyMap - A keymap to load to the leader key binding"
+        ],
+        "notes" : [
+          "Spec of keymap:",
+          "Every key is of format {{modifers}, key, description}.",
+          "The first two elements are similar to what is expected in `hs.hotkey.bind`",
+          "",
+          "The value for each must be in one of the following two forms:",
+          "1. A function: pressing the key invokes the function.",
+          "2. A table: pressing the key activates the next layer of keybindings.",
+          "   This table should have the same format as the top table",
+          "",
+          "For example:",
+          "",
+          "```lua",
+          "local keyMap = {",
+          "    [{ {}, \"space\", \"command\" }] = functionToRunForSpace,",
+          "    [{ { \"option\" }, \"space\", \"⌥-SPC\" }] = functionToRunForOptionSpace,",
+          "    [singleKey(\"h\", \"hammerspoon+\")] = {",
+          "        [singleKey(\"r\", \"reload\")] = function()",
+          "            hs.reload()",
+          "            hs.console.clearConsole()",
+          "        end,",
+          "       [singleKey(\";\", \"console\")] = function()",
+          "           hs.toggleConsole()",
+          "       end,",
+          "    },",
+          "}",
+          "```"
+        ],
+        "signature" : "LeaderKey.getBinder(userKeyMap)",
+        "type" : "Function",
+        "returns" : [
+          " * Function that runs when the leader key is triggered"
+        ],
+        "name" : "getBinder",
+        "desc" : "Prepares the top level keybindings in the keymap"
+      }
     ],
     "Variable" : [
       {
-        "def" : "LeaderKey.logger",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "def" : "LeaderKey.logger",
+        "parameters" : [
+
+        ],
         "notes" : [
 
         ],
@@ -26,17 +94,17 @@
 
         ],
         "name" : "logger",
-        "parameters" : [
-
-        ]
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
       },
       {
-        "def" : "LeaderKey.helperId",
+        "doc" : "ID of currently shown helper",
         "stripped_doc" : [
           "ID of currently shown helper"
         ],
-        "doc" : "ID of currently shown helper",
-        "desc" : "ID of currently shown helper",
+        "def" : "LeaderKey.helperId",
+        "parameters" : [
+
+        ],
         "notes" : [
 
         ],
@@ -46,17 +114,17 @@
 
         ],
         "name" : "helperId",
-        "parameters" : [
-
-        ]
+        "desc" : "ID of currently shown helper"
       },
       {
-        "def" : "LeaderKey.escapeKey",
+        "doc" : "Key combination to abort",
         "stripped_doc" : [
           "Key combination to abort"
         ],
-        "doc" : "Key combination to abort",
-        "desc" : "Key combination to abort",
+        "def" : "LeaderKey.escapeKey",
+        "parameters" : [
+
+        ],
         "notes" : [
 
         ],
@@ -66,17 +134,17 @@
 
         ],
         "name" : "escapeKey",
-        "parameters" : [
-
-        ]
+        "desc" : "Key combination to abort"
       },
       {
-        "def" : "LeaderKey.helperDelay",
+        "doc" : "Delay in seconds before showing helper",
         "stripped_doc" : [
           "Delay in seconds before showing helper"
         ],
-        "doc" : "Delay in seconds before showing helper",
-        "desc" : "Delay in seconds before showing helper",
+        "def" : "LeaderKey.helperDelay",
+        "parameters" : [
+
+        ],
         "notes" : [
 
         ],
@@ -86,17 +154,17 @@
 
         ],
         "name" : "helperDelay",
-        "parameters" : [
-
-        ]
+        "desc" : "Delay in seconds before showing helper"
       },
       {
-        "def" : "LeaderKey.helperRowLimit",
+        "doc" : "Maximum number of rows in helper",
         "stripped_doc" : [
           "Maximum number of rows in helper"
         ],
-        "doc" : "Maximum number of rows in helper",
-        "desc" : "Maximum number of rows in helper",
+        "def" : "LeaderKey.helperRowLimit",
+        "parameters" : [
+
+        ],
         "notes" : [
 
         ],
@@ -106,17 +174,17 @@
 
         ],
         "name" : "helperRowLimit",
-        "parameters" : [
-
-        ]
+        "desc" : "Maximum number of rows in helper"
       },
       {
-        "def" : "LeaderKey.helperItemSize",
+        "doc" : "Maximum size of one item in helper",
         "stripped_doc" : [
           "Maximum size of one item in helper"
         ],
-        "doc" : "Maximum size of one item in helper",
-        "desc" : "Maximum size of one item in helper",
+        "def" : "LeaderKey.helperItemSize",
+        "parameters" : [
+
+        ],
         "notes" : [
 
         ],
@@ -126,17 +194,17 @@
 
         ],
         "name" : "helperItemSize",
-        "parameters" : [
-
-        ]
+        "desc" : "Maximum size of one item in helper"
       },
       {
-        "def" : "LeaderKey.helperTextStyle",
+        "doc" : "Styling for text",
         "stripped_doc" : [
           "Styling for text"
         ],
-        "doc" : "Styling for text",
-        "desc" : "Styling for text",
+        "def" : "LeaderKey.helperTextStyle",
+        "parameters" : [
+
+        ],
         "notes" : [
 
         ],
@@ -146,17 +214,17 @@
 
         ],
         "name" : "helperTextStyle",
-        "parameters" : [
-
-        ]
+        "desc" : "Styling for text"
       },
       {
-        "def" : "LeaderKey.helperSpecialKeys",
+        "doc" : "Representations for special keys",
         "stripped_doc" : [
           "Representations for special keys"
         ],
-        "doc" : "Representations for special keys",
-        "desc" : "Representations for special keys",
+        "def" : "LeaderKey.helperSpecialKeys",
+        "parameters" : [
+
+        ],
         "notes" : [
 
         ],
@@ -166,319 +234,23 @@
 
         ],
         "name" : "helperSpecialKeys",
-        "parameters" : [
-
-        ]
+        "desc" : "Representations for special keys"
       }
     ],
     "stripped_doc" : [
 
     ],
+    "desc" : "Vim-like Leader key",
     "Deprecated" : [
 
     ],
     "type" : "Module",
-    "desc" : "Emacs-like Leader key",
     "Constructor" : [
 
     ],
-    "items" : [
-      {
-        "def" : "LeaderKey.escapeKey",
-        "stripped_doc" : [
-          "Key combination to abort"
-        ],
-        "doc" : "Key combination to abort",
-        "desc" : "Key combination to abort",
-        "notes" : [
-
-        ],
-        "signature" : "LeaderKey.escapeKey",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "escapeKey",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "def" : "LeaderKey.helperDelay",
-        "stripped_doc" : [
-          "Delay in seconds before showing helper"
-        ],
-        "doc" : "Delay in seconds before showing helper",
-        "desc" : "Delay in seconds before showing helper",
-        "notes" : [
-
-        ],
-        "signature" : "LeaderKey.helperDelay",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "helperDelay",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "def" : "LeaderKey.helperId",
-        "stripped_doc" : [
-          "ID of currently shown helper"
-        ],
-        "doc" : "ID of currently shown helper",
-        "desc" : "ID of currently shown helper",
-        "notes" : [
-
-        ],
-        "signature" : "LeaderKey.helperId",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "helperId",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "def" : "LeaderKey.helperItemSize",
-        "stripped_doc" : [
-          "Maximum size of one item in helper"
-        ],
-        "doc" : "Maximum size of one item in helper",
-        "desc" : "Maximum size of one item in helper",
-        "notes" : [
-
-        ],
-        "signature" : "LeaderKey.helperItemSize",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "helperItemSize",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "def" : "LeaderKey.helperRowLimit",
-        "stripped_doc" : [
-          "Maximum number of rows in helper"
-        ],
-        "doc" : "Maximum number of rows in helper",
-        "desc" : "Maximum number of rows in helper",
-        "notes" : [
-
-        ],
-        "signature" : "LeaderKey.helperRowLimit",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "helperRowLimit",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "def" : "LeaderKey.helperSpecialKeys",
-        "stripped_doc" : [
-          "Representations for special keys"
-        ],
-        "doc" : "Representations for special keys",
-        "desc" : "Representations for special keys",
-        "notes" : [
-
-        ],
-        "signature" : "LeaderKey.helperSpecialKeys",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "helperSpecialKeys",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "def" : "LeaderKey.helperTextStyle",
-        "stripped_doc" : [
-          "Styling for text"
-        ],
-        "doc" : "Styling for text",
-        "desc" : "Styling for text",
-        "notes" : [
-
-        ],
-        "signature" : "LeaderKey.helperTextStyle",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "helperTextStyle",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "def" : "LeaderKey.logger",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "notes" : [
-
-        ],
-        "signature" : "LeaderKey.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "logger",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "def" : "LeaderKey.getBinder(userKeyMap)",
-        "stripped_doc" : [
-          "Prepares the top level keybindings in the keymap"
-        ],
-        "doc" : "Prepares the top level keybindings in the keymap\nParameters:\n * userKeyMap - A keymap to load to the leader key binding\nReturns:\n * Function that runs when the leader key is triggered\nNotes:\nSpec of keymap:\nEvery key is of format {{modifers}, key, description}.\nThe first two elements are similar to what is expected in `hs.hotkey.bind`\n\nThe value for each must be in one of the following two forms:\n1. A function: pressing the key invokes the function.\n2. A table: pressing the key activates the next layer of keybindings.\n   This table should have the same format as the top table\n\nFor example:\n\n```lua\nlocal keyMap = {\n    [{ {}, \"space\", \"command\" }] = functionToRunForSpace,\n    [{ { \"option\" }, \"space\", \"⌥-SPC\" }] = functionToRunForOptionSpace,\n    [singleKey(\"h\", \"hammerspoon+\")] = {\n        [singleKey(\"r\", \"reload\")] = function()\n            hs.reload()\n            hs.console.clearConsole()\n        end,\n       [singleKey(\";\", \"console\")] = function()\n           hs.toggleConsole()\n       end,\n    },\n}\n```",
-        "desc" : "Prepares the top level keybindings in the keymap",
-        "notes" : [
-          "Spec of keymap:",
-          "Every key is of format {{modifers}, key, description}.",
-          "The first two elements are similar to what is expected in `hs.hotkey.bind`",
-          "",
-          "The value for each must be in one of the following two forms:",
-          "1. A function: pressing the key invokes the function.",
-          "2. A table: pressing the key activates the next layer of keybindings.",
-          "   This table should have the same format as the top table",
-          "",
-          "For example:",
-          "",
-          "```lua",
-          "local keyMap = {",
-          "    [{ {}, \"space\", \"command\" }] = functionToRunForSpace,",
-          "    [{ { \"option\" }, \"space\", \"⌥-SPC\" }] = functionToRunForOptionSpace,",
-          "    [singleKey(\"h\", \"hammerspoon+\")] = {",
-          "        [singleKey(\"r\", \"reload\")] = function()",
-          "            hs.reload()",
-          "            hs.console.clearConsole()",
-          "        end,",
-          "       [singleKey(\";\", \"console\")] = function()",
-          "           hs.toggleConsole()",
-          "       end,",
-          "    },",
-          "}",
-          "```"
-        ],
-        "signature" : "LeaderKey.getBinder(userKeyMap)",
-        "type" : "Method",
-        "returns" : [
-          " * Function that runs when the leader key is triggered"
-        ],
-        "name" : "getBinder",
-        "parameters" : [
-          " * userKeyMap - A keymap to load to the leader key binding"
-        ]
-      },
-      {
-        "def" : "LeaderKey.singleKey(key, name)",
-        "stripped_doc" : [
-          "Returns a table with modifier, key, and name for a single key"
-        ],
-        "doc" : "Returns a table with modifier, key, and name for a single key\nParameters:\n * key - Key to bind\n * name - Name of keybinding\nReturns:\n * Table with modifier, key, and name\nNotes:\nIf the key is a capital letter, it also includes the shift modifier.\nOtherwise, no modifiers.",
-        "desc" : "Returns a table with modifier, key, and name for a single key",
-        "notes" : [
-          "If the key is a capital letter, it also includes the shift modifier.",
-          "Otherwise, no modifiers."
-        ],
-        "signature" : "LeaderKey.singleKey(key, name)",
-        "type" : "Method",
-        "returns" : [
-          " * Table with modifier, key, and name"
-        ],
-        "name" : "singleKey",
-        "parameters" : [
-          " * key - Key to bind",
-          " * name - Name of keybinding"
-        ]
-      }
-    ],
+    "doc" : "Vim-like Leader key",
     "Method" : [
-      {
-        "def" : "LeaderKey.singleKey(key, name)",
-        "stripped_doc" : [
-          "Returns a table with modifier, key, and name for a single key"
-        ],
-        "doc" : "Returns a table with modifier, key, and name for a single key\nParameters:\n * key - Key to bind\n * name - Name of keybinding\nReturns:\n * Table with modifier, key, and name\nNotes:\nIf the key is a capital letter, it also includes the shift modifier.\nOtherwise, no modifiers.",
-        "desc" : "Returns a table with modifier, key, and name for a single key",
-        "notes" : [
-          "If the key is a capital letter, it also includes the shift modifier.",
-          "Otherwise, no modifiers."
-        ],
-        "signature" : "LeaderKey.singleKey(key, name)",
-        "type" : "Method",
-        "returns" : [
-          " * Table with modifier, key, and name"
-        ],
-        "name" : "singleKey",
-        "parameters" : [
-          " * key - Key to bind",
-          " * name - Name of keybinding"
-        ]
-      },
-      {
-        "def" : "LeaderKey.getBinder(userKeyMap)",
-        "stripped_doc" : [
-          "Prepares the top level keybindings in the keymap"
-        ],
-        "doc" : "Prepares the top level keybindings in the keymap\nParameters:\n * userKeyMap - A keymap to load to the leader key binding\nReturns:\n * Function that runs when the leader key is triggered\nNotes:\nSpec of keymap:\nEvery key is of format {{modifers}, key, description}.\nThe first two elements are similar to what is expected in `hs.hotkey.bind`\n\nThe value for each must be in one of the following two forms:\n1. A function: pressing the key invokes the function.\n2. A table: pressing the key activates the next layer of keybindings.\n   This table should have the same format as the top table\n\nFor example:\n\n```lua\nlocal keyMap = {\n    [{ {}, \"space\", \"command\" }] = functionToRunForSpace,\n    [{ { \"option\" }, \"space\", \"⌥-SPC\" }] = functionToRunForOptionSpace,\n    [singleKey(\"h\", \"hammerspoon+\")] = {\n        [singleKey(\"r\", \"reload\")] = function()\n            hs.reload()\n            hs.console.clearConsole()\n        end,\n       [singleKey(\";\", \"console\")] = function()\n           hs.toggleConsole()\n       end,\n    },\n}\n```",
-        "desc" : "Prepares the top level keybindings in the keymap",
-        "notes" : [
-          "Spec of keymap:",
-          "Every key is of format {{modifers}, key, description}.",
-          "The first two elements are similar to what is expected in `hs.hotkey.bind`",
-          "",
-          "The value for each must be in one of the following two forms:",
-          "1. A function: pressing the key invokes the function.",
-          "2. A table: pressing the key activates the next layer of keybindings.",
-          "   This table should have the same format as the top table",
-          "",
-          "For example:",
-          "",
-          "```lua",
-          "local keyMap = {",
-          "    [{ {}, \"space\", \"command\" }] = functionToRunForSpace,",
-          "    [{ { \"option\" }, \"space\", \"⌥-SPC\" }] = functionToRunForOptionSpace,",
-          "    [singleKey(\"h\", \"hammerspoon+\")] = {",
-          "        [singleKey(\"r\", \"reload\")] = function()",
-          "            hs.reload()",
-          "            hs.console.clearConsole()",
-          "        end,",
-          "       [singleKey(\";\", \"console\")] = function()",
-          "           hs.toggleConsole()",
-          "       end,",
-          "    },",
-          "}",
-          "```"
-        ],
-        "signature" : "LeaderKey.getBinder(userKeyMap)",
-        "type" : "Method",
-        "returns" : [
-          " * Function that runs when the leader key is triggered"
-        ],
-        "name" : "getBinder",
-        "parameters" : [
-          " * userKeyMap - A keymap to load to the leader key binding"
-        ]
-      }
+
     ],
     "Command" : [
 
@@ -486,7 +258,235 @@
     "Field" : [
 
     ],
-    "doc" : "Emacs-like Leader key",
+    "items" : [
+      {
+        "doc" : "Key combination to abort",
+        "stripped_doc" : [
+          "Key combination to abort"
+        ],
+        "def" : "LeaderKey.escapeKey",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "LeaderKey.escapeKey",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "escapeKey",
+        "desc" : "Key combination to abort"
+      },
+      {
+        "doc" : "Delay in seconds before showing helper",
+        "stripped_doc" : [
+          "Delay in seconds before showing helper"
+        ],
+        "def" : "LeaderKey.helperDelay",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "LeaderKey.helperDelay",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "helperDelay",
+        "desc" : "Delay in seconds before showing helper"
+      },
+      {
+        "doc" : "ID of currently shown helper",
+        "stripped_doc" : [
+          "ID of currently shown helper"
+        ],
+        "def" : "LeaderKey.helperId",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "LeaderKey.helperId",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "helperId",
+        "desc" : "ID of currently shown helper"
+      },
+      {
+        "doc" : "Maximum size of one item in helper",
+        "stripped_doc" : [
+          "Maximum size of one item in helper"
+        ],
+        "def" : "LeaderKey.helperItemSize",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "LeaderKey.helperItemSize",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "helperItemSize",
+        "desc" : "Maximum size of one item in helper"
+      },
+      {
+        "doc" : "Maximum number of rows in helper",
+        "stripped_doc" : [
+          "Maximum number of rows in helper"
+        ],
+        "def" : "LeaderKey.helperRowLimit",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "LeaderKey.helperRowLimit",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "helperRowLimit",
+        "desc" : "Maximum number of rows in helper"
+      },
+      {
+        "doc" : "Representations for special keys",
+        "stripped_doc" : [
+          "Representations for special keys"
+        ],
+        "def" : "LeaderKey.helperSpecialKeys",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "LeaderKey.helperSpecialKeys",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "helperSpecialKeys",
+        "desc" : "Representations for special keys"
+      },
+      {
+        "doc" : "Styling for text",
+        "stripped_doc" : [
+          "Styling for text"
+        ],
+        "def" : "LeaderKey.helperTextStyle",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "LeaderKey.helperTextStyle",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "helperTextStyle",
+        "desc" : "Styling for text"
+      },
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "def" : "LeaderKey.logger",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "LeaderKey.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+      },
+      {
+        "doc" : "Prepares the top level keybindings in the keymap\nParameters:\n * userKeyMap - A keymap to load to the leader key binding\nReturns:\n * Function that runs when the leader key is triggered\nNotes:\nSpec of keymap:\nEvery key is of format {{modifers}, key, description}.\nThe first two elements are similar to what is expected in `hs.hotkey.bind`\n\nThe value for each must be in one of the following two forms:\n1. A function: pressing the key invokes the function.\n2. A table: pressing the key activates the next layer of keybindings.\n   This table should have the same format as the top table\n\nFor example:\n\n```lua\nlocal keyMap = {\n    [{ {}, \"space\", \"command\" }] = functionToRunForSpace,\n    [{ { \"option\" }, \"space\", \"⌥-SPC\" }] = functionToRunForOptionSpace,\n    [singleKey(\"h\", \"hammerspoon+\")] = {\n        [singleKey(\"r\", \"reload\")] = function()\n            hs.reload()\n            hs.console.clearConsole()\n        end,\n       [singleKey(\";\", \"console\")] = function()\n           hs.toggleConsole()\n       end,\n    },\n}\n```",
+        "stripped_doc" : [
+          "Prepares the top level keybindings in the keymap"
+        ],
+        "def" : "LeaderKey.getBinder(userKeyMap)",
+        "parameters" : [
+          " * userKeyMap - A keymap to load to the leader key binding"
+        ],
+        "notes" : [
+          "Spec of keymap:",
+          "Every key is of format {{modifers}, key, description}.",
+          "The first two elements are similar to what is expected in `hs.hotkey.bind`",
+          "",
+          "The value for each must be in one of the following two forms:",
+          "1. A function: pressing the key invokes the function.",
+          "2. A table: pressing the key activates the next layer of keybindings.",
+          "   This table should have the same format as the top table",
+          "",
+          "For example:",
+          "",
+          "```lua",
+          "local keyMap = {",
+          "    [{ {}, \"space\", \"command\" }] = functionToRunForSpace,",
+          "    [{ { \"option\" }, \"space\", \"⌥-SPC\" }] = functionToRunForOptionSpace,",
+          "    [singleKey(\"h\", \"hammerspoon+\")] = {",
+          "        [singleKey(\"r\", \"reload\")] = function()",
+          "            hs.reload()",
+          "            hs.console.clearConsole()",
+          "        end,",
+          "       [singleKey(\";\", \"console\")] = function()",
+          "           hs.toggleConsole()",
+          "       end,",
+          "    },",
+          "}",
+          "```"
+        ],
+        "signature" : "LeaderKey.getBinder(userKeyMap)",
+        "type" : "Function",
+        "returns" : [
+          " * Function that runs when the leader key is triggered"
+        ],
+        "name" : "getBinder",
+        "desc" : "Prepares the top level keybindings in the keymap"
+      },
+      {
+        "doc" : "Returns a table with modifier, key, and name for a single key\nParameters:\n * key - Key to bind\n * name - Name of keybinding\nReturns:\n * Table with modifier, key, and name\nNotes:\nIf the key is a capital letter, it also includes the shift modifier.\nOtherwise, no modifiers.",
+        "stripped_doc" : [
+          "Returns a table with modifier, key, and name for a single key"
+        ],
+        "def" : "LeaderKey.singleKey(key, name)",
+        "parameters" : [
+          " * key - Key to bind",
+          " * name - Name of keybinding"
+        ],
+        "notes" : [
+          "If the key is a capital letter, it also includes the shift modifier.",
+          "Otherwise, no modifiers."
+        ],
+        "signature" : "LeaderKey.singleKey(key, name)",
+        "type" : "Function",
+        "returns" : [
+          " * Table with modifier, key, and name"
+        ],
+        "name" : "singleKey",
+        "desc" : "Returns a table with modifier, key, and name for a single key"
+      }
+    ],
     "name" : "LeaderKey"
   }
 ]

@@ -149,7 +149,7 @@ local function getUppercaseKey(key)
 end
 
 --- LeaderKey.singleKey(key, name)
---- Method
+--- Function
 --- Returns a table with modifier, key, and name for a single key
 --- Parameters:
 ---  * key - Key to bind
@@ -353,7 +353,7 @@ local function bindRecursively(keyMap)
 end
 
 --- LeaderKey.getBinder(userKeyMap)
---- Method
+--- Function
 --- Prepares the top level keybindings in the keymap
 --- Parameters:
 ---  * userKeyMap - A keymap to load to the leader key binding
