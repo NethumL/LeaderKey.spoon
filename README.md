@@ -7,3 +7,5 @@
 </div>
 
 > Vim-like Leader key with [Hammerspoon](https://www.hammerspoon.org)
+
+- Based on the [RecursiveBinder](https://www.hammerspoon.org/Spoons/RecursiveBinder.html) spoon
