@@ -216,16 +216,13 @@ end
 
 local function transformKeyMap(keyMap)
     local result = {}
-    for trigger, action in pairs(keyMap) do
+    for trigger, action in hs.fnutils.sortByKeys(keyMap, compareKeys) do
         if type(action) ~= "function" then
             action = transformKeyMap(action)
         end
         table.insert(result, { key = trigger, action = action })
     end
 
-    table.sort(result, function(a, b)
-        return compareKeys(a.key, b.key)
-    end)
     return result
 end
 
